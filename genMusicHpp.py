@@ -19,7 +19,7 @@ with open('music','r') as csvfile:
 			hpp.write(",")
 			hpp.write(row[2])
 			hpp.write("},\n")
-	hpp.write("}")
+	hpp.write("};")
 
 hpp.write("\n\n#endif")
 hpp.close()
