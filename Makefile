@@ -1,6 +1,6 @@
 NAME=projector
 OBJS=isn.o sound.o reveil.o screen.o music.o
-FLAGS=-g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=22 -I /usr/share/arduino/hardware/arduino/cores/arduino/ -I /usr/share/arduino/libraries/SoftwareSerial/ -I /usr/share/arduino/libraries/Servo/
+FLAGS=-g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=22 -I /usr/share/arduino/hardware/arduino/cores/arduino/ -I /usr/share/arduino/libraries/LiquidCrystal/
 PORT=/dev/ttyUSB0
 BAUDRATE=57600
 
