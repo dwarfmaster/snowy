@@ -4,7 +4,7 @@
 
 #include "Arduino.h"
 #include "pins.hpp"
-enum Notes;
+#include "music.hpp"
 
 class Sound
 {
@@ -24,6 +24,7 @@ class Sound
 		unsigned long m_lastTime;
 		unsigned long m_firstTime;
 		unsigned int m_pos;
+		unsigned int m_subPos;
 		unsigned int m_timeStay;
 
 		void playNote(Notes note, unsigned int duration);
