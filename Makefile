@@ -1,4 +1,4 @@
-FILES=isn.cpp
+FILES=isn.cpp sound.cpp reveil.cpp screen.cpp
 OBJ=obj
 FLAGS=-g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=22 -I /usr/share/arduino/hardware/arduino/cores/arduino/
 PORT=/dev/ttyUSB0
