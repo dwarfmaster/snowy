@@ -5,6 +5,7 @@
 #include "pins.hpp"
 #include "screen.hpp"
 #include "sound.hpp"
+#include "date.hpp"
 
 class Reveil
 {
@@ -18,6 +19,7 @@ class Reveil
 	private:
 		Screen* m_scr;
 		Sound* m_snd; 
+		Date m_date;
 };
 
 #endif//DEF_REVEIL
