@@ -20,6 +20,7 @@ class Sound
 	private:
 		int m_vol;
 		bool m_paused;
+		bool m_mute;
 
 		unsigned long m_lastTime;
 		unsigned long m_firstTime;

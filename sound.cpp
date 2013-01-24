@@ -4,13 +4,13 @@
 // Internal functions
 struct NoteLink{ Notes n; int freq; };
 NoteLink links[] = {
-	{DO, 10},
-	{RE, 20},
-	{MI, 30},
-	{FA, 40},
-	{SOL, 50},
-	{LA, 60},
-	{SI, 70},
+	{DO, 2093},
+	{RE, 0},
+	{MI, 0},
+	{FA, 1397},
+	{SOL, 1568},
+	{LA, 1760},
+	{SI, 1865},
 };
 
 int freqFromNote(Notes n)
@@ -25,12 +25,12 @@ int freqFromNote(Notes n)
 
 void Sound::playNote(Notes note, unsigned int duration)
 {
-	tone( freqFromNote(note), duration);
+	tone(pinMus, freqFromNote(note));
 }
 
 // Interface functions
 Sound::Sound()
-	: m_vol(5), m_paused(true), m_pos(0), m_subPos(0)
+	: m_vol(5), m_paused(true), m_pos(0), m_subPos(1), m_mute(false)
 {
 	pinMode(pinMus, OUTPUT);
 }
@@ -41,9 +41,12 @@ Sound::~Sound()
 void Sound::play()
 {
 	m_paused = false;
+	m_mute = false;
 	m_firstTime = millis();
 	m_lastTime = millis();
 	m_vol = 125;
+	m_pos = 0;
+	m_subPos = 1;
 
 	m_timeStay = music[0].duration * tempo;
 	playNote(music[0].note, m_timeStay);
@@ -53,6 +56,14 @@ void Sound::update()
 {
 	if( m_paused )
 		return;
+	
+	if( m_pos >= sizeMus )
+	{
+		noTone(pinMus);
+		delay(tempo);
+		play();
+		return;
+	}
 
 	m_vol = (millis() - m_firstTime) * (130/10000);
 	m_vol += 125;
@@ -61,16 +72,26 @@ void Sound::update()
 	unsigned int timeSpent = millis() - m_lastTime;
 	if( timeSpent > m_timeStay )
 	{
-		if( m_subPos > music[m_pos].repeat )
+		if( m_mute )
 		{
-			++m_pos;
-			m_subPos = 0;
+			if( m_subPos >= music[m_pos].repeat )
+			{
+				++m_pos;
+				m_subPos = 1;
+			}
+			else
+				++m_subPos;
+
+			m_timeStay = music[m_pos].duration * tempo;
+			playNote(music[m_pos].note, m_timeStay);
+			m_mute = false;
 		}
 		else
-			++m_subPos;
-
-		m_timeStay = music[m_pos].duration * tempo;
-		playNote(music[m_pos].note, m_timeStay);
+		{
+			noTone(pinMus);
+			m_timeStay = 50;
+			m_mute = true;
+		}
 		m_lastTime = millis();
 	}
 }
