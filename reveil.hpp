@@ -29,7 +29,6 @@ class Reveil
 		Date m_rev;
 
 		bool m_edit;
-		bool m_beep;
 
 		void print() const;
 };

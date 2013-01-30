@@ -14,10 +14,14 @@ void Reveil::update()
 
 void upButtonClic()
 {
+	if( m_edit )
+		m_used->addM();
 }
 
 void downButtonClic()
 {
+	if( m_edit )
+		m_used->sudM();
 }
 
 void Reveil::print() const
