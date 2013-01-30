@@ -85,5 +85,53 @@ void Reveil::print() const
 
 void Reveil::buzz()
 {
+	detachInterrupt(0);
+	detachInterrupt(1);
+
+	m_snd->play();
+	unsigned long ltime = millis();
+	while( digitalRead(pinStop) != HIGH )
+	{
+		unsigned long time = millis();
+		if( time - ltime > 500 )
+		{
+			toggleLeds();
+			ltime = time;
+		}
+	}
+
+	m_snd->stop();
+}
+
+void Reveil::toggleLeds()
+{
+	static int step = 0;
+
+	// Les yeux
+	int eyeStep = step % 4;
+	if( eyeStep == 0
+			|| eyeStep == 2 )
+	{
+		digitalWrite(pinREye, HIGH);
+		digitalWrite(pinLEye, HIGH);
+	}
+	else if( eyeStep == 1 )
+	{
+		digitalWrite(pinREye, HIGH);
+		digitalWrite(pinLEye, LOW);
+	}
+	else if( eyeStep == 3 )
+	{
+		digitalWrite(pinREye, LOW);
+		digitalWrite(pinLEye, HIGH);
+	}
+
+	// Les leds
+	for(int i = 0; i < 3; ++i)
+		digitalWrite(pinLeds[i], LOW);
+	digitalWrite(pinLeds[step % 3], HIGH);
+
+	++step;
+	step %= 12; // Pour éviter qu'il ne grandisse trop, ne fausse ni % 3, ni % 4
 }
 

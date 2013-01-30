@@ -18,6 +18,12 @@ class Reveil
 	const int pinEdit = 4;
 	const int pinBeep = 5;
 
+	const int pinREye = 14;
+	const int pinLEye = 15;
+	const int pinLeds[3] = {16,17,18};
+
+	const int pinStop = 19;
+
 	public:
 		Reveil(Screen* scr, Sound* snd);
 		~Reveil();
@@ -36,6 +42,7 @@ class Reveil
 
 		void print() const;
 		void buzz();
+		void toggleLeds();
 };
 
 extern volatile Reveil* instance;
