@@ -11,7 +11,7 @@ class Screen
 		Screen();
 		~Screen();
 
-		void print(const char* txt);
+		void print(const char* txt, unsigned int x = 0, unsigned int y = 0);
 		void refresh();
 
 	private:
