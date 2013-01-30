@@ -18,6 +18,7 @@ class Date
 		unsigned short getS() const;
 
 		void update();
+		bool operator==(const Date& d) const;
 
 	private:
 		unsigned short m_houre;

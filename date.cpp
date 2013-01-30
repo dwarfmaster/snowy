@@ -80,3 +80,8 @@ void Date::update()
 	m_lastTime = time - timeE % 1000;
 }
 
+bool Date::operator==(const Date& d) const
+{
+	return (d.m_houre == m_houre) && (d.m_min == m_min);
+}
+
