@@ -1,6 +1,8 @@
 
 #include "reveil.hpp"
 
+volatile Reveil* instance;
+
 Reveil::Reveil(Screen* scr, Sound* snd)
 	: m_scr(scr), m_snd(snd), m_used(&m_date), m_edit(false), m_beep(false)
 {}
@@ -14,14 +16,14 @@ void Reveil::update()
 
 void upButtonClic()
 {
-	if( m_edit )
-		m_used->addM();
+	if( instance->m_edit )
+		instance->m_used->addM();
 }
 
 void downButtonClic()
 {
-	if( m_edit )
-		m_used->sudM();
+	if( instance->m_edit )
+		instance->m_used->subM();
 }
 
 void Reveil::print() const
