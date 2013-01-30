@@ -1,8 +1,9 @@
 
 #include "date.hpp"
+#include "Arduino.h"
 
 Date::Date()
-	: m_houre(0), m_min(0), m_sec(0)
+	: m_houre(0), m_min(0), m_sec(0), m_lastTime(millis())
 {}
 
 Date::~Date()
@@ -64,12 +65,18 @@ unsigned short Date::getS() const
 	return m_sec;
 }
 
-void Date::process(long millis)
+void Date::update()
 {
-	m_sec += millis / 1000;
-	m_min += m_sec / 60;
+	unsigned long time = millis();
+	unsigned long timeE = m_lastTime - time;
+
+	m_sec = timeE / 1000;
+	m_min = m_sec / 60;
 	m_sec %= 60;
-	m_houre += m_min / 60;
+	m_houre = m_min / 60;
+	m_min %= 60;
 	m_houre %= 24;
+
+	m_lastTime = time - timeE % 1000;
 }
 

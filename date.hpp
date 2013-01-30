@@ -17,12 +17,13 @@ class Date
 		unsigned short getM() const;
 		unsigned short getS() const;
 
-		void process(long millis);
+		void update();
 
 	private:
 		unsigned short m_houre;
 		unsigned short m_min;
 		unsigned short m_sec;
+		long m_lastTime;
 };
 
 #endif
