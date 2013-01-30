@@ -28,6 +28,8 @@ class Reveil
 
 		bool m_edit;
 		bool m_beep;
+
+		void print() const;
 };
 
 #endif//DEF_REVEIL
