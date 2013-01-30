@@ -7,19 +7,27 @@
 #include "sound.hpp"
 #include "date.hpp"
 
+void upButtonClic();
+void downButtonClic();
+
 class Reveil
 {
+	friend void upButtonClic();
+	friend void downButtonClic();
+
 	public:
 		Reveil(Screen* scr, Sound* snd);
 		~Reveil();
 
 		void update(); // Lance la sonnerie si l'heure est arrivée
-		void reglage(); // Interface de réglage de l'heure de son
 
 	private:
 		Screen* m_scr;
 		Sound* m_snd; 
 		Date m_date;
+
+		bool m_edit;
+		bool m_beep;
 };
 
 #endif//DEF_REVEIL
