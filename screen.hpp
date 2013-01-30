@@ -19,8 +19,6 @@ class Screen
 			m_lcd.print(txt);
 		}
 
-		void refresh();
-
 	private:
 		LiquidCrystal m_lcd;
 };
