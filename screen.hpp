@@ -11,7 +11,14 @@ class Screen
 		Screen();
 		~Screen();
 
-		void print(const char* txt, unsigned int x = 0, unsigned int y = 0);
+		template<typename T>
+		void print(T txt, unsigned int x = 0, unsigned int y = 0)
+		{
+			m_lcd.clear();
+			m_lcd.setCursor(x, y);
+			m_lcd.print(txt);
+		}
+
 		void refresh();
 
 	private:

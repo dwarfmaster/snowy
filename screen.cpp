@@ -11,13 +11,6 @@ Screen::Screen()
 Screen::~Screen()
 {}
 
-void Screen::print(const char* txt, unsigned int x, unsigned int y)
-{
-	m_lcd.clear();
-	m_lcd.setCursor(x, y);
-	m_lcd.print(txt);
-}
-
 void Screen::refresh()
 {}
 
