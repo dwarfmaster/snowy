@@ -25,7 +25,16 @@ void Reveil::update()
 	else
 		m_beep = false;
 
+	if( m_beep )
+		m_used = &m_rev;
+	else
+		m_used = &m_date;
+
 	print();
+
+	if( m_beep
+			&& m_rev == m_date )
+		buzz();
 }
 
 void upButtonClic()
@@ -72,5 +81,9 @@ void Reveil::print() const
 	}
 	else
 		m_scr->print(m_used->getS(), 10);
+}
+
+void Reveil::buzz()
+{
 }
 

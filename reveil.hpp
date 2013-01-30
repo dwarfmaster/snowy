@@ -35,6 +35,7 @@ class Reveil
 		bool m_beep;
 
 		void print() const;
+		void buzz();
 };
 
 extern volatile Reveil* instance;
