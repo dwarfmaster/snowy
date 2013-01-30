@@ -5,7 +5,10 @@ volatile Reveil* instance;
 
 Reveil::Reveil(Screen* scr, Sound* snd)
 	: m_scr(scr), m_snd(snd), m_used(&m_date), m_edit(false), m_beep(false)
-{}
+{
+	attachInterupt(0, upButtonClic, RISING);
+	attachInterupt(1, downButtonClic, RISING);
+}
 
 Reveil::~Reveil()
 {}

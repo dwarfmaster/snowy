@@ -15,6 +15,9 @@ class Reveil
 	friend void upButtonClic();
 	friend void downButtonClic();
 
+	const int pinEdit = 4;
+	const int pinBeep = 5;
+
 	public:
 		Reveil(Screen* scr, Sound* snd);
 		~Reveil();
