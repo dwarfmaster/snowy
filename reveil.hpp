@@ -24,7 +24,9 @@ class Reveil
 	private:
 		Screen* m_scr;
 		Sound* m_snd; 
+		Date* m_used;
 		Date m_date;
+		Date m_rev;
 
 		bool m_edit;
 		bool m_beep;
