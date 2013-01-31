@@ -7,6 +7,8 @@ void Reveil::load(Screen* scr, Sound* snd)
 {
 	m_scr = scr;
 	m_snd = snd;
+	m_date.load();
+	m_rev.load();
 	m_used = &m_date;
 	m_edit = false;
 	m_beep = false;
