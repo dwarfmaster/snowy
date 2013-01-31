@@ -25,7 +25,7 @@ class Reveil
 	const int pinStop = 19;
 
 	public:
-		Reveil(Screen* scr, Sound* snd);
+		void load(Screen* scr, Sound* snd);
 
 		void update(); // Lance la sonnerie si l'heure est arrivée
 
