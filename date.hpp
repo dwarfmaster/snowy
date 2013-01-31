@@ -5,7 +5,7 @@
 class Date
 {
 	public:
-		Date();
+		void load();
 
 		unsigned short addM();
 		unsigned short subM();

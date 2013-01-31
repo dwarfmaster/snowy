@@ -2,9 +2,13 @@
 #include "date.hpp"
 #include "Arduino.h"
 
-Date::Date()
-	: m_houre(0), m_min(0), m_sec(0), m_lastTime(millis())
-{}
+void Date::load()
+{
+	m_houre = 0;
+	m_min = 0;
+	m_sec = 0;
+	m_lastTime = millis();
+}
 
 unsigned short Date::addM()
 {
