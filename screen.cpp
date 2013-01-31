@@ -1,10 +1,8 @@
 
 #include "screen.hpp"
-#include "pins.hpp"
 
-Screen::Screen()
-	: m_lcd(pinScrRS, pinScrEn, pinScr1, pinScr2, pinScr3, pinScr4)
+void Screen::load()
 {
-	m_lcd.begin(16,2); // TODO vérifier
+	m_lcd.begin(16,2);
 }
 
