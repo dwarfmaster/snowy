@@ -1,5 +1,5 @@
-#include "Arduino.h"
 #include "reveil.hpp"
+#include "Arduino.h"
 #include "sound.hpp"
 #include "screen.hpp"
 
@@ -8,10 +8,13 @@ void loop();
 
 Screen scr;
 Sound snd;
-Reveil reveil(&scr, &snd);
+Reveil reveil;
 
 void setup()
 {
+	scr.load();
+	snd.load();
+	reveil.load(&scr, &snd);
 	instance = &reveil;
 }
 
