@@ -1,16 +1,15 @@
 
-#ifndef DEF_PINS
-#define DEF_PINS
+#ifndef pinMus
 
 // Les pins avec leur rôle
-const int pinMus = 2;
-const int pinRetro = 3;
-const int pinScrRS = 12;
-const int pinScrEn = 11;
-const int pinScr1 = 7;
-const int pinScr2 = 6;
-const int pinScr3 = 5;
-const int pinScr4 = 4;
+#define pinMus 2
+#define pinRetro 3
+#define pinScrRS 12
+#define pinScrEn 11
+#define pinScr1 7
+#define pinScr2 6
+#define pinScr3 5
+#define pinScr4 4
 
-#endif//DEF_PINS
+#endif
 
