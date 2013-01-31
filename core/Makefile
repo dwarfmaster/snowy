@@ -1,7 +1,7 @@
 FLAGS=-Wall -Wextra
-CXXFLAGS=$(FLAGS) -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=22 -I /usr/lib/arduino/hardware/arduino/cores/arduino/ -I /usr/share/arduino/hardware/arduino/cores/arduino/
-CFLAGS=$(FLAGS) -g -Os -w -fno-exceptions -fdata-sections -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=22 -I /usr/lib/arduino/hardware/arduino/cores/arduino/ -I /usr/share/arduino/hardware/arduino/cores/arduino/
-FILES=WString.o wiring_digital.o wiring.o wiring_analog.o WInterrupts.o Tone.o Print.o main.o HardwareSerial.o wiring_shift.o wiring_pulse.o Print.o WMath.o pins_arduino.o
+CXXFLAGS=$(FLAGS) -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=22 -I /usr/lib/arduino/hardware/arduino/cores/arduino/ -I /usr/share/arduino/hardware/arduino/cores/arduino/ -I /usr/lib/arduino/libraries/LiquidCrystal/
+CFLAGS=$(FLAGS) -g -Os -w -fno-exceptions -fdata-sections -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=22 -I /usr/lib/arduino/hardware/arduino/cores/arduino/ -I /usr/share/arduino/hardware/arduino/cores/arduino/ -I /usr/lib/arduino/libraries/LiquidCrystal/
+FILES=WString.o wiring_digital.o wiring.o wiring_analog.o WInterrupts.o Tone.o Print.o main.o HardwareSerial.o wiring_shift.o wiring_pulse.o Print.o WMath.o pins_arduino.o LiquidCrystal.o 
 
 
 all : $(FILES)
@@ -11,6 +11,9 @@ all : $(FILES)
 	avr-gcc $(CFLAGS) -c $< -o $@
 
 %.o : /usr/lib/arduino/hardware/arduino/cores/arduino/%.cpp
+	avr-g++ $(CXXFLAGS) -c $< -o $@
+
+LiquidCrystal.o : /usr/lib/arduino/libraries/LiquidCrystal/LiquidCrystal.cpp
 	avr-g++ $(CXXFLAGS) -c $< -o $@
 
 pins_arduino.o : /usr/share/arduino/hardware/arduino/cores/arduino/pins_arduino.c
