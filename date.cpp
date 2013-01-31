@@ -70,7 +70,6 @@ void Date::update()
 {
 	unsigned long time = millis();
 	unsigned long timeE = time - m_lastTime;
-	Serial.println(timeE);
 
 	m_sec += (timeE / 1000);
 	m_min += (m_sec / 60);
