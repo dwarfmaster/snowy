@@ -9,7 +9,6 @@ class Screen
 {
 	public:
 		Screen();
-		~Screen();
 
 		template<typename T>
 		void print(T txt, unsigned int x = 0, unsigned int y = 0)

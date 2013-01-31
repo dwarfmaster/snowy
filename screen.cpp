@@ -8,6 +8,3 @@ Screen::Screen()
 	m_lcd.begin(16,2); // TODO vérifier
 }
 
-Screen::~Screen()
-{}
-

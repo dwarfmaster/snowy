@@ -26,7 +26,6 @@ class Reveil
 
 	public:
 		Reveil(Screen* scr, Sound* snd);
-		~Reveil();
 
 		void update(); // Lance la sonnerie si l'heure est arrivée
 

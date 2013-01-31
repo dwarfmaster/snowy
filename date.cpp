@@ -6,9 +6,6 @@ Date::Date()
 	: m_houre(0), m_min(0), m_sec(0), m_lastTime(millis())
 {}
 
-Date::~Date()
-{}
-
 unsigned short Date::addM()
 {
 	++m_min;

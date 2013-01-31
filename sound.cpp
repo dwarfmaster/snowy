@@ -35,9 +35,6 @@ Sound::Sound()
 	pinMode(pinMus, OUTPUT);
 }
 
-Sound::~Sound()
-{}
-
 void Sound::play()
 {
 	m_paused = false;

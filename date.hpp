@@ -6,7 +6,6 @@ class Date
 {
 	public:
 		Date();
-		~Date();
 
 		unsigned short addM();
 		unsigned short subM();

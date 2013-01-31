@@ -10,9 +10,6 @@ Reveil::Reveil(Screen* scr, Sound* snd)
 	attachInterrupt(1, downButtonClic, RISING);
 }
 
-Reveil::~Reveil()
-{}
-
 void Reveil::update()
 {
 	if( digitalRead(pinEdit) == HIGH )
