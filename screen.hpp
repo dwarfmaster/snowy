@@ -14,7 +14,6 @@ class Screen
 		template<typename T>
 		void print(T txt, unsigned int x = 0, unsigned int y = 0)
 		{
-			m_lcd.clear();
 			m_lcd.setCursor(x, y);
 			m_lcd.print(txt);
 		}
