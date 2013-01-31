@@ -83,6 +83,6 @@ void Date::update()
 
 bool Date::operator==(const Date& d) const
 {
-	return (d.m_houre == m_houre) && (d.m_min == m_min);
+	return (d.m_houre == m_houre) && (d.m_min == m_min) && (d.m_sec == m_sec);
 }
 
