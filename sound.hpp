@@ -1,5 +1,5 @@
 
-#ifndef DEf_SOUND
+#ifndef DEF_SOUND
 #define DEF_SOUND
 
 #include "Arduino.h"
