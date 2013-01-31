@@ -9,7 +9,7 @@
 class Sound
 {
 	public:
-		Sound();
+		void load();
 
 		void play();
 		void update();

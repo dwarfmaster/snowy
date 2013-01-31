@@ -29,9 +29,13 @@ void Sound::playNote(Notes note, unsigned int duration)
 }
 
 // Interface functions
-Sound::Sound()
-	: m_vol(5), m_paused(true), m_pos(0), m_subPos(1), m_mute(false)
+void Sound::load()
 {
+	m_vol = 5;
+	m_paused = true;
+	m_pos = 0;
+	m_subPos = 1;
+	m_mute = false;
 	pinMode(pinMus, OUTPUT);
 }
 
