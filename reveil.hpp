@@ -45,7 +45,7 @@ class Reveil
 		void toggleLeds();
 };
 
-extern volatile Reveil* instance;
+extern Reveil* instance;
 
 #endif//DEF_REVEIL
 
