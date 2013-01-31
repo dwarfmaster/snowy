@@ -98,9 +98,12 @@ void Reveil::buzz()
 			toggleLeds();
 			ltime = time;
 		}
+		m_snd->update();
 	}
 
 	m_snd->stop();
+	attachInterrupt(0, upButtonClic, RISING);
+	attachInterrupt(1, downButtonClic, RISING);
 }
 
 void Reveil::toggleLeds()
