@@ -1,6 +1,6 @@
 NAME=projector
 OBJS=isn.o sound.o reveil.o screen.o music.o date.o
-FLAGS=-g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=22 -I /usr/share/arduino/hardware/arduino/cores/arduino/ -I /usr/lib/arduino/libraries/LiquidCrystal/ -I /usr/lib/arduino/hardware/arduino/cores/arduino/
+FLAGS=-g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=103 -I /usr/share/arduino/hardware/arduino/cores/arduino/ -I /usr/lib/arduino/libraries/LiquidCrystal/ -I /usr/lib/arduino/hardware/arduino/cores/arduino/
 PORT=/dev/ttyACM0
 BAUDRATE=115200
 
@@ -16,7 +16,7 @@ transmit : $(NAME).hex
 	avrdude -v -p m328p -P $(PORT) -b$(BAUDRATE) -c arduino -U flash:w:$(NAME).hex
 
 connect : transmit
-	screen $(PORT) $(BAUDRATE)
+	screen $(PORT) 9600
 
 clean :
 	rm -vf $(OBJS)
