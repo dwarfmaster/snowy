@@ -69,16 +69,17 @@ unsigned short Date::getS() const
 void Date::update()
 {
 	unsigned long time = millis();
-	unsigned long timeE = m_lastTime - time;
+	unsigned long timeE = time - m_lastTime;
+	Serial.println(timeE);
 
-	m_sec = timeE / 1000;
-	m_min = m_sec / 60;
+	m_sec += (timeE / 1000);
+	m_min += (m_sec / 60);
 	m_sec %= 60;
-	m_houre = m_min / 60;
+	m_houre += (m_min / 60);
 	m_min %= 60;
 	m_houre %= 24;
 
-	m_lastTime = time - timeE % 1000;
+	m_lastTime = time - (timeE % 1000);
 }
 
 bool Date::operator==(const Date& d) const
