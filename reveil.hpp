@@ -15,15 +15,6 @@ class Reveil
 	friend void upButtonClic();
 	friend void downButtonClic();
 
-	const int pinEdit = 4;
-	const int pinBeep = 5;
-
-	const int pinREye = 14;
-	const int pinLEye = 15;
-	const int pinLeds[3] = {16,17,18};
-
-	const int pinStop = 19;
-
 	public:
 		void load(Screen* scr, Sound* snd);
 
