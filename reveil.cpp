@@ -19,22 +19,13 @@ void Reveil::load(Screen* scr, Sound* snd)
 
 void Reveil::update()
 {
-	/*
-	if( digitalRead(pinEdit) == HIGH )
-		m_edit = true;
-	else
-		m_edit = false;
-	
-	if( digitalRead(pinBeep) == HIGH )
-		m_beep = true;
-	else
-		m_beep = false;
+	m_edit = (digitalRead(pinEdit) == HIGH);
+	m_beep = (digitalRead(pinBeep) == HIGH);
 
 	if( m_beep )
 		m_used = &m_rev;
 	else
 		m_used = &m_date;
-	*/
 
 	m_date.update();
 	print();
