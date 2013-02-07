@@ -19,6 +19,7 @@ void Reveil::load(Screen* scr, Sound* snd)
 
 void Reveil::update()
 {
+	/*
 	if( digitalRead(pinEdit) == HIGH )
 		m_edit = true;
 	else
@@ -33,7 +34,9 @@ void Reveil::update()
 		m_used = &m_rev;
 	else
 		m_used = &m_date;
+	*/
 
+	m_date.update();
 	print();
 
 	if( m_beep
@@ -53,7 +56,7 @@ void downButtonClic()
 		instance->m_used->subM();
 }
 
-void Reveil::print() const
+void Reveil::print()
 {
 	if( m_edit )
 		m_scr->print("E");

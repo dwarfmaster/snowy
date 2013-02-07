@@ -39,7 +39,7 @@ class Reveil
 		bool m_edit;
 		bool m_beep;
 
-		void print() const;
+		void print();
 		void buzz();
 		void toggleLeds();
 };
