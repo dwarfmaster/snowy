@@ -13,8 +13,8 @@ const int pinScr2 = 6;
 const int pinScr3 = 5;
 const int pinScr4 = 4;
 
-const int pinEdit = 4;
-const int pinBeep = 5;
+const int pinEdit = 8;
+const int pinBeep = 9;
 const int pinREye = 14;
 const int pinLEye = 15;
 const int pinLeds[3] = {16,17,18};
