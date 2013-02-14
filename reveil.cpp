@@ -91,25 +91,19 @@ void Reveil::buzz()
 	detachInterrupt(0);
 	detachInterrupt(1);
 
+	m_snd->setCb(toggleLeds);
 	m_snd->play();
 	unsigned long ltime = millis();
 	while( digitalRead(pinStop) != HIGH )
-	{
-		unsigned long time = millis();
-		if( time - ltime > 500 )
-		{
-			toggleLeds();
-			ltime = time;
-		}
 		m_snd->update();
-	}
 
 	m_snd->stop();
+	m_snd->setCb(NULL);
 	attachInterrupt(0, upButtonClic, RISING);
 	attachInterrupt(1, downButtonClic, RISING);
 }
 
-void Reveil::toggleLeds()
+void toggleLeds()
 {
 	static int step = 0;
 

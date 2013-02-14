@@ -9,6 +9,7 @@
 
 void upButtonClic();
 void downButtonClic();
+void toggleLeds();
 
 class Reveil
 {
@@ -32,7 +33,6 @@ class Reveil
 
 		void print();
 		void buzz();
-		void toggleLeds();
 };
 
 extern Reveil* instance;
