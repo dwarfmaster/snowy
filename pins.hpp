@@ -2,6 +2,8 @@
 #ifndef pinMusHpp
 #define pinMusHpp
 
+#include "Arduino.h"
+
 // Les pins avec leur rôle
 const int pinMus = 2;
 
@@ -15,10 +17,10 @@ const int pinScr4 = 4;
 
 const int pinEdit = 8;
 const int pinBeep = 9;
-const int pinREye = 14;
-const int pinLEye = 15;
-const int pinLeds[3] = {16,17,18};
-const int pinStop = 19;
+const int pinREye = A0;
+const int pinLEye = A1;
+const int pinLeds[3] = {A2,A3,A4};
+const int pinStop = A5;
 
 #endif
 
