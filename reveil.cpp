@@ -15,6 +15,11 @@ void Reveil::load(Screen* scr, Sound* snd)
 
 	attachInterrupt(0, upButtonClic, RISING);
 	attachInterrupt(1, downButtonClic, RISING);
+
+	pinMode(pinREye, OUTPUT);
+	pinMode(pinLEye, OUTPUT);
+	for(int i = 0; i < 3; ++i)
+		pinMode(pinLeds[i], OUTPUT);
 }
 
 void Reveil::update()
@@ -109,30 +114,16 @@ void Reveil::toggleLeds()
 	static int step = 0;
 
 	// Les yeux
-	int eyeStep = step % 4;
-	if( eyeStep == 0
-			|| eyeStep == 2 )
-	{
-		digitalWrite(pinREye, HIGH);
-		digitalWrite(pinLEye, HIGH);
-	}
-	else if( eyeStep == 1 )
-	{
-		digitalWrite(pinREye, HIGH);
-		digitalWrite(pinLEye, LOW);
-	}
-	else if( eyeStep == 3 )
-	{
-		digitalWrite(pinREye, LOW);
-		digitalWrite(pinLEye, HIGH);
-	}
+	analogWrite(pinREye, 255);
+	analogWrite(pinLEye, 255);
 
 	// Les leds
 	for(int i = 0; i < 3; ++i)
-		digitalWrite(pinLeds[i], LOW);
-	digitalWrite(pinLeds[step % 3], HIGH);
+		analogWrite(pinLeds[i], 0);
+	Serial.println(pinLeds[step]);
+	analogWrite(pinLeds[step], 255);
 
 	++step;
-	step %= 12; // Pour éviter qu'il ne grandisse trop, ne fausse ni % 3, ni % 4
+	step %= 3; // Pour éviter qu'il ne grandisse trop, ne fausse ni % 3, ni % 4
 }
 
