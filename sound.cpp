@@ -36,6 +36,7 @@ void Sound::load()
 	m_pos = 0;
 	m_subPos = 1;
 	m_mute = false;
+	m_cb = NULL;
 	pinMode(pinMus, OUTPUT);
 }
 
@@ -89,6 +90,8 @@ void Sound::update()
 		}
 		else
 		{
+			if( m_cb != NULL )
+				m_cb();
 			noTone(pinMus);
 			m_timeStay = 50;
 			m_mute = true;
@@ -112,4 +115,8 @@ void Sound::setvolume(int vol)
 	m_vol = vol;
 }
 
+void Sound::setCb(cb_t cb)
+{
+	m_cb = cb;
+}
 

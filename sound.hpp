@@ -9,17 +9,21 @@
 class Sound
 {
 	public:
+		typedef void (*cb_t)();
+
 		void load();
 
 		void play();
 		void update();
 		void stop();
 		void setvolume(int vol);
+		void setCb(cb_t cb);
 
 	private:
 		int m_vol;
 		bool m_paused;
 		bool m_mute;
+		cb_t m_cb;
 
 		unsigned long m_lastTime;
 		unsigned long m_firstTime;
