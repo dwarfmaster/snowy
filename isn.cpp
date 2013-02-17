@@ -16,6 +16,7 @@ void setup()
 	snd.load();
 	reveil.load(&scr, &snd);
 	instance = &reveil;
+	Serial.begin(9600);
 }
 
 void loop()
