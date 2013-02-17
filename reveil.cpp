@@ -13,8 +13,8 @@ void Reveil::load(Screen* scr, Sound* snd)
 	m_edit = false;
 	m_beep = false;
 
-	attachInterrupt(0, upButtonClic, RISING);
-	attachInterrupt(1, downButtonClic, RISING);
+	// attachInterrupt(0, upButtonClic, RISING);
+	// attachInterrupt(1, downButtonClic, RISING);
 
 	pinMode(pinREye, OUTPUT);
 	pinMode(pinLEye, OUTPUT);
@@ -24,8 +24,10 @@ void Reveil::load(Screen* scr, Sound* snd)
 
 void Reveil::update()
 {
-	m_edit = (digitalRead(pinEdit) == HIGH);
-	m_beep = (digitalRead(pinBeep) == HIGH);
+	// m_edit = (digitalRead(pinEdit) == HIGH);
+	m_edit = false;
+	// m_beep = (digitalRead(pinBeep) == HIGH);
+	m_beep = true;
 
 	if( m_beep )
 		m_used = &m_rev;
@@ -88,8 +90,8 @@ void Reveil::print()
 
 void Reveil::buzz()
 {
-	detachInterrupt(0);
-	detachInterrupt(1);
+	// detachInterrupt(0);
+	// detachInterrupt(1);
 
 	m_snd->setCb(toggleLeds);
 	m_snd->play();
@@ -99,8 +101,8 @@ void Reveil::buzz()
 
 	m_snd->stop();
 	m_snd->setCb(NULL);
-	attachInterrupt(0, upButtonClic, RISING);
-	attachInterrupt(1, downButtonClic, RISING);
+	// attachInterrupt(0, upButtonClic, RISING);
+	// attachInterrupt(1, downButtonClic, RISING);
 }
 
 void toggleLeds()
