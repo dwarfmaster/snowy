@@ -30,7 +30,7 @@ void Reveil::update()
 	// m_beep = (digitalRead(pinBeep) == HIGH);
 	m_beep = true;
 
-	if( m_beep )
+	if( m_beep && m_edit )
 		m_used = &m_rev;
 	else
 		m_used = &m_date;
@@ -87,6 +87,10 @@ void Reveil::print()
 	}
 	else
 		m_scr->print(m_used->getS(), 10);
+
+	Serial.print(m_used->getM());
+	Serial.print(":");
+	Serial.println(m_used->getS());
 }
 
 void Reveil::buzz()
