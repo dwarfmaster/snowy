@@ -61,9 +61,9 @@ void downButtonClic()
 void Reveil::print()
 {
 	if( m_edit )
-		m_scr->print("E");
+		m_scr->printE();
 	if( m_beep )
-		m_scr->print("B", 0, 1);
+		m_scr->printB(0, 1);
 
 	if( m_used->getH() < 10 )
 	{
