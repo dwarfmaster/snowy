@@ -87,10 +87,6 @@ void Reveil::print()
 	}
 	else
 		m_scr->print(m_used->getS(), 10);
-
-	Serial.print(m_used->getM());
-	Serial.print(":");
-	Serial.println(m_used->getS());
 }
 
 void Reveil::buzz()
