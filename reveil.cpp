@@ -21,6 +21,9 @@ void Reveil::load(Screen* scr, Sound* snd)
 	pinMode(pinLEye, OUTPUT);
 	for(int i = 0; i < 3; ++i)
 		pinMode(pinLeds[i], OUTPUT);
+
+	pinMode(13, OUTPUT);
+	digitalWrite(13, HIGH);
 }
 
 void Reveil::update()
