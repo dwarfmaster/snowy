@@ -5,9 +5,9 @@
 #include "Arduino.h"
 
 // Les pins avec leur rôle
-const int pinMus = 2;
+const int pinMus = 10;
 
-const int pinRetro = 3;
+const int pinRetro = 13;
 const int pinScrRS = 12;
 const int pinScrEn = 11;
 const int pinScr1 = 7;
