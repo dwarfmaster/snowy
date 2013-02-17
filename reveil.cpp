@@ -107,9 +107,9 @@ void Reveil::buzz()
 	m_snd->setCb(NULL);
 
 	for(int i = 0; i < 3; ++i)
-		digitalWrite(pinLeds[i], LOW);
-	digitalWrite(pinREye, LOW);
-	digitalWrite(pinLEye, LOW);
+		analogWrite(pinLeds[i], 0);
+	analogWrite(pinREye, 0);
+	analogWrite(pinLEye, 0);
 
 	// attachInterrupt(0, upButtonClic, RISING);
 	// attachInterrupt(1, downButtonClic, RISING);
