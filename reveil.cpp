@@ -117,19 +117,45 @@ void Reveil::buzz()
 
 void toggleLeds()
 {
-	static int step = 0;
+	static int i (0);
+	if (i == 0)
+	{
+		digitalWrite (pinLeds[0], HIGH);
+		digitalWrite (pinLeds[1], LOW);
+		digitalWrite (pinLeds[2], LOW);
+		++i;
+	}
 
-	// Les yeux
-	analogWrite(pinREye, 255);
-	analogWrite(pinLEye, 255);
+	if (i == 1)
+	{
+		digitalWrite (pinLeds[0], HIGH);
+		digitalWrite (pinLeds[1], HIGH);
+		digitalWrite (pinLeds[2], LOW);
+		++i;
+	}
 
-	// Les leds
-	for(int i = 0; i < 3; ++i)
-		analogWrite(pinLeds[i], 0);
-	Serial.println(pinLeds[step]);
-	analogWrite(pinLeds[step], 255);
+	if (i == 2)
+	{
+		digitalWrite (pinLeds[0], HIGH);
+		digitalWrite (pinLeds[1], HIGH);
+		digitalWrite (pinLeds[2], HIGH);
+		++i;
+	}
 
-	++step;
-	step %= 3; // Pour éviter qu'il ne grandisse trop, ne fausse ni % 3, ni % 4
+	if (i == 3)
+	{
+		digitalWrite (pinLeds[0], LOW);
+		digitalWrite (pinLeds[1], HIGH);
+		digitalWrite (pinLeds[2], HIGH);
+		++i;
+	}
+
+	if (i == 4)
+	{
+		digitalWrite (pinLeds[0], LOW);
+		digitalWrite (pinLeds[1], LOW);
+		digitalWrite (pinLeds[2], HIGH);
+		i = 0;
+	}
 }
 
