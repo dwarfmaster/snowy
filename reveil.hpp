@@ -52,6 +52,9 @@ class Reveil
 		bool m_edit;
 		bool m_beep;
 
+		bool m_upSt;
+		bool m_downSt;
+
 		void print();
 		void buzz();
 };

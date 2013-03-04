@@ -37,6 +37,10 @@ void Reveil::load(Screen* scr, Sound* snd)
 
 	// attachInterrupt(0, upButtonClic, RISING);
 	// attachInterrupt(1, downButtonClic, RISING);
+	pinMode(pinUp, INPUT);
+	m_upSt = digitalRead(pinUp);
+	pinMode(pinDown, INPUT);
+	m_downSt = digitalRead(pinDown);
 
 	pinMode(pinREye, OUTPUT);
 	pinMode(pinLEye, OUTPUT);
