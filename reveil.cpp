@@ -22,8 +22,6 @@
 
 #include "reveil.hpp"
 
-Reveil* instance;
-
 void Reveil::load(Screen* scr, Sound* snd)
 {
 	m_scr = scr;

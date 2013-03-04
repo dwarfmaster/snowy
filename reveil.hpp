@@ -56,7 +56,5 @@ class Reveil
 		void downButtonClic();
 };
 
-extern Reveil* instance;
-
 #endif//DEF_REVEIL
 
