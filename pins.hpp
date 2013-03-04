@@ -26,7 +26,8 @@
 #include "Arduino.h"
 
 // Les pins avec leur rôle
-// Les pins 2 et 3 sont réservées aux interruptions
+const int pinUp = 2;
+const int pinDown = 3;
 const int pinMus = 10;
 
 const int pinRetro = 13;
