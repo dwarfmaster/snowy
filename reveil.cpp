@@ -33,8 +33,6 @@ void Reveil::load(Screen* scr, Sound* snd)
 	m_edit = false;
 	m_beep = false;
 
-	// attachInterrupt(0, upButtonClic, RISING);
-	// attachInterrupt(1, downButtonClic, RISING);
 	pinMode(pinUp, INPUT);
 	m_upSt = digitalRead(pinUp);
 	pinMode(pinDown, INPUT);
@@ -127,9 +125,6 @@ void Reveil::print()
 
 void Reveil::buzz()
 {
-	// detachInterrupt(0);
-	// detachInterrupt(1);
-
 	m_snd->setCb(toggleLeds);
 	m_snd->play();
 	unsigned long ltime = millis();
@@ -143,9 +138,6 @@ void Reveil::buzz()
 		analogWrite(pinLeds[i], 0);
 	analogWrite(pinREye, 0);
 	analogWrite(pinLEye, 0);
-
-	// attachInterrupt(0, upButtonClic, RISING);
-	// attachInterrupt(1, downButtonClic, RISING);
 }
 
 void toggleLeds()
