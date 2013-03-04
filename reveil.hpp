@@ -28,15 +28,10 @@
 #include "sound.hpp"
 #include "date.hpp"
 
-void upButtonClic();
-void downButtonClic();
 void toggleLeds();
 
 class Reveil
 {
-	friend void upButtonClic();
-	friend void downButtonClic();
-
 	public:
 		void load(Screen* scr, Sound* snd);
 
@@ -57,6 +52,8 @@ class Reveil
 
 		void print();
 		void buzz();
+		void upButtonClic();
+		void downButtonClic();
 };
 
 extern Reveil* instance;

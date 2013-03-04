@@ -81,16 +81,16 @@ void Reveil::update()
 		buzz();
 }
 
-void upButtonClic()
+void Reveil::upButtonClic()
 {
-	if( instance->m_edit )
-		instance->m_used->addM();
+	if( m_edit )
+		m_used->addM();
 }
 
-void downButtonClic()
+void Reveil::downButtonClic()
 {
-	if( instance->m_edit )
-		instance->m_used->subM();
+	if( m_edit )
+		m_used->subM();
 }
 
 void Reveil::print()
