@@ -63,6 +63,16 @@ void Reveil::update()
 	else
 		m_used = &m_date;
 
+	bool upSt = digitalRead(pinUp);
+	if( upSt == HIGH && m_upSt == LOW )
+		upButtonClic();
+	m_upSt = upSt;
+
+	bool downSt = digitalRead(pinDown);
+	if( downSt == HIGH && m_downSt == LOW )
+		downButtonClic();
+	m_downSt = downSt;
+
 	m_date.update();
 	print();
 
