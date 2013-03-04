@@ -22,8 +22,6 @@
 
 #include "reveil.hpp"
 
-Reveil* instance;
-
 void Reveil::load(Screen* scr, Sound* snd)
 {
 	m_scr = scr;
@@ -35,8 +33,10 @@ void Reveil::load(Screen* scr, Sound* snd)
 	m_edit = false;
 	m_beep = false;
 
-	// attachInterrupt(0, upButtonClic, RISING);
-	// attachInterrupt(1, downButtonClic, RISING);
+	pinMode(pinUp, INPUT);
+	m_upSt = digitalRead(pinUp);
+	pinMode(pinDown, INPUT);
+	m_downSt = digitalRead(pinDown);
 
 	pinMode(pinREye, OUTPUT);
 	pinMode(pinLEye, OUTPUT);
@@ -59,6 +59,16 @@ void Reveil::update()
 	else
 		m_used = &m_date;
 
+	bool upSt = digitalRead(pinUp);
+	if( upSt == HIGH && m_upSt == LOW )
+		upButtonClic();
+	m_upSt = upSt;
+
+	bool downSt = digitalRead(pinDown);
+	if( downSt == HIGH && m_downSt == LOW )
+		downButtonClic();
+	m_downSt = downSt;
+
 	m_date.update();
 	print();
 
@@ -67,16 +77,16 @@ void Reveil::update()
 		buzz();
 }
 
-void upButtonClic()
+void Reveil::upButtonClic()
 {
-	if( instance->m_edit )
-		instance->m_used->addM();
+	if( m_edit )
+		m_used->addM();
 }
 
-void downButtonClic()
+void Reveil::downButtonClic()
 {
-	if( instance->m_edit )
-		instance->m_used->subM();
+	if( m_edit )
+		m_used->subM();
 }
 
 void Reveil::print()
@@ -115,9 +125,6 @@ void Reveil::print()
 
 void Reveil::buzz()
 {
-	// detachInterrupt(0);
-	// detachInterrupt(1);
-
 	m_snd->setCb(toggleLeds);
 	m_snd->play();
 	unsigned long ltime = millis();
@@ -131,9 +138,6 @@ void Reveil::buzz()
 		analogWrite(pinLeds[i], 0);
 	analogWrite(pinREye, 0);
 	analogWrite(pinLEye, 0);
-
-	// attachInterrupt(0, upButtonClic, RISING);
-	// attachInterrupt(1, downButtonClic, RISING);
 }
 
 void toggleLeds()
