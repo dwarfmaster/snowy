@@ -127,7 +127,7 @@ void Reveil::buzz()
 {
 	m_snd->setCb(toggleLeds);
 	m_snd->play();
-	unsigned long ltime = millis();
+	unsigned long ltime = millis(); // TODO à virer
 	while( digitalRead(pinStop) != HIGH )
 		m_snd->update();
 
@@ -142,6 +142,9 @@ void Reveil::buzz()
 
 void toggleLeds()
 {
+	digitalWrite(pinREye, HIGH);
+	digitalWrite(pinLEye, HIGH);
+
 	static int i (0);
 	if (i == 0)
 	{
