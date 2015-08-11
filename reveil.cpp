@@ -49,10 +49,10 @@ void Reveil::load(Screen* scr, Sound* snd)
 
 void Reveil::update()
 {
-	// m_edit = (digitalRead(pinEdit) == HIGH);
-	m_edit = false;
-	// m_beep = (digitalRead(pinBeep) == HIGH);
-	m_beep = true;
+	m_edit = (digitalRead(pinEdit) == HIGH);
+	// m_edit = false;
+	m_beep = (digitalRead(pinBeep) == HIGH);
+	// m_beep = true;
 
 	if( m_beep && m_edit )
 		m_used = &m_rev;
@@ -91,7 +91,7 @@ void Reveil::downButtonClic()
 
 void Reveil::print()
 {
-	if( m_edit )
+	/* if( m_edit )
 		m_scr->printE();
 	if( m_beep )
 		m_scr->printB(0, 1);
@@ -121,6 +121,18 @@ void Reveil::print()
 	}
 	else
 		m_scr->print(m_used->getS(), 10);
+		*/
+	Serial.print(m_used->getH());
+	Serial.print(":");
+	Serial.print(m_used->getM());
+	Serial.print(":");
+	Serial.print(m_used->getS());
+	Serial.print(" ");
+	if( m_edit )
+		Serial.print("(E) ");
+	if( m_beep )
+		Serial.print("(B)");
+	Serial.println("");
 }
 
 void Reveil::buzz()
