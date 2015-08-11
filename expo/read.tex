@@ -1,0 +1,70 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage[top=3cm, bottom=3cm, left=3cm, right=3cm]{geometry}
+
+\title{Snowy}
+
+\begin{document}
+\maketitle
+
+\section{Titre}
+
+\section{Sommaire}
+Voir diapo.
+
+\section{Général}
+Cette partie servira à parler du projet tel que nous l'avons réalisé, puis de comparer avec ce qu'il est réellement.
+
+\subsection{Idée initiale.}
+Notre projet a pour but de créer un réveil avec un look en accord avec la saison de la rédaction du cahier des charges; l'hiver. Nous avons donc décidé de lui donner l'apparence d'un bohomme de neige.
+
+Ce que vous avez sous les yeux est un modèle blender du projet, utilisé lors de la rédaction du cahier des charges. Il présente l'apparence du bonhomme de neige telle que nous l'avons imaginé au début du projet.
+
+Les différents numéros représentent chacun une partie importante du projet :
+\begin{itemize}
+	\item \textbf{0 :} Le bloc contenant toute l'électronique, ainsi que les hauts parleurs jouant la sonnerie.
+	\item \textbf{1 :} L'écran affichant l'heure et permettant les réglages.
+	\item \textbf{2 :} L'interrupteur permettant de désactiver le réveil.
+	\item \textbf{3 :} Les boutons permettant de régler l'heure et la minute du réveil.
+	\item \textbf{4 :} Le bonhomme de neige, avec différentes LEDs s'allumant et clignotant en rythme lors de la sonnerie.
+	\item \textbf{5 :} Le chapeau dissimule un bouton permettant d'arrêter le réveil lors de la sonnerie.
+	\item \textbf{6 :} L'interrupteur permettant de changer le mode (édition de l'heure d'alarme ou normal). Les boutons (numéros 3) ne sont utilisable que si cet interrupteur est activé.
+\end{itemize}
+
+\subsection{Projet finit.}
+Le projet finit est comme l'initial avec des fonctionnalités en moins. Le réglage de l'heure n'est plus possible, et les interrupteurs ne sont plus utilisés. Le robot se contente d'afficher l'heure sur l'ordinateur. De plus, l'heure de sonnerie est entrée dans le code. Ces fonctionnalités ont été enlevées a cause de nombreux faux contacts liés à un cablage discutable (pas le temps de l'améliorer).
+
+\section{Montage.}
+Nous allons ici vous parler tout d'abord des matériaux utilisé, puis du câblage.
+
+\subsection{Matériaux utilisés.}
+Pour la construction, nous avons utilisés deux boules de polystyrène, ainsi qu'une boite en carton pour la base. \emph{Les autres composants sont affichés au tableau.}
+
+\subsection{Câblage.}
+Nous avons eu de nombreux faux contacts dans le câblage, ce qui explique que nous n'utilisons plus ni écran ni boutons.
+
+Pour l'écran, nous avons pensé à utiliser un système à quatres pins, au lieux de 11, limitant les risques de faux contacts. Malheureusement, nous n'avions pas la nappe nécessaire ni temps de le faire.
+
+\section{Programmation.}
+Cette partie servira à décrire le code. Nous en présenterons tout d'abord l'architecture globale, puis nous détaillerons quelque un des algorithmes utilisés.
+
+\subsection{Architecture globale.}
+Programme c++ : découpage en classe afin d'avoir la plus grande abstraction possible.
+
+\subsection{La mise à jour de l'heure.}
+Marie E.
+
+\subsection{L'affichage de l'heure.}
+Héloïse.
+
+\subsection{La gestion des LEDs.}
+Marie Q.
+
+\subsection{Le son.}
+Luc.
+
+\section{Conclusion.}
+\end{document}
